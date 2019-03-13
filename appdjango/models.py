@@ -8,19 +8,11 @@ from yapayzekainterface.yapayzekacore import Yapayzeka
 from django.db import models
 
 
-class Egitim(models.Model):
-    etiket = models.CharField(max_length=200)
-    text = models.TextField()
-
-    def __str__(self):
-        return self.etiket
-
-
 class Tahmin(models.Model):
     # tahmin = models.ForeignKey(Egitim, on_delete=models.CASCADE
-    tahmin = models.TextField(blank=True,)
     metin = models.TextField(help_text="Metin giriniz.",blank=True,)
-    beklenen = models.TextField(blank=True,)
+    tahmin = models.TextField(help_text="Algoritmanın tahmin ettiği etiket.",blank=True,)
+    beklenen = models.TextField(help_text="Beklenen etiket.",blank=True,)
 
     def save(self, *args, **kwargs):
         orn = Yapayzeka()
@@ -29,3 +21,10 @@ class Tahmin(models.Model):
 
     def deneme(self):
         return tuple((self.metin, self.tahmin))
+
+class Egitim(models.Model):
+    etiket = models.CharField(max_length=200)
+    text = models.TextField()
+
+    def __str__(self):
+        return self.etiket
