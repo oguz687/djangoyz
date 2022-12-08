@@ -8,7 +8,7 @@ verify_ssl = true
 [packages]
 yapayzeka = "==0.0.22"
 beautifulsoup4 = "==4.7.1"
-certifi = "==2019.3.9"
+certifi = "==2022.12.7"
 cloudpickle = "==0.8.0"
 dask = "==1.1.4"
 decorator = "==4.3.2"
